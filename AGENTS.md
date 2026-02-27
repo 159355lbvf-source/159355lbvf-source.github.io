@@ -39,6 +39,26 @@ Checklist:
 - For UI changes, capture a short demo video and at least one screenshot.
 - Report pass/fail with exact commands and outputs.
 
+### 4) Database agent
+Use when tasks involve database schema, migrations, queries, or data integrity.
+
+Checklist:
+- Clarify DB engine/version and target environments (dev/stage/prod).
+- Propose safe migrations with explicit rollback steps.
+- Keep schema changes backward-compatible when possible.
+- Add or adjust indexes based on query patterns, not assumptions.
+- Validate query plans and watch for N+1 scans or full table scans.
+- Protect data with transactions, constraints, and idempotent scripts.
+- Avoid destructive operations without backup/restore instructions.
+- Provide verification commands and expected before/after results.
+
+Formats and query languages:
+- `xlsx` / `xls` (Excel) for import/export preparation and mapping.
+- `csv` and `txt` for bulk load/unload and data checks.
+- SQL dialects (PostgreSQL/MySQL/SQLite/T-SQL) when applicable.
+- `CQL` for Apache Cassandra-compatible workloads.
+- Always document encoding, delimiter, timezone, and NULL conventions.
+
 ## Git workflow
 - Work only on the current task branch.
 - Commit small logical units with clear messages.
