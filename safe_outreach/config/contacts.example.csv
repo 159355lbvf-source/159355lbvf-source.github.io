@@ -1,0 +1,8 @@
+contact_id,telegram,display_name,consent,last_contact_date
+u001,@demo_user_1,Иван,true,2026-03-10
+u002,@demo_user_2,Мария,true,2026-03-11
+u003,@demo_user_3,Олег,false,2026-03-12
+u004,@demo_user_4,Алина,true,2026-03-01
+u005,@demo_user_5,Павел,true,
+u006,,Без telegram,true,2026-03-05
+
