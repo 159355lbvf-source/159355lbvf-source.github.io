@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "openclaw-phone": {
+      "command": "openclaw-cli",
+      "args": ["mcp"],
+      "env": {
+        "OPENCLAW_BASE_URL": "http://26.26.26.1:18789",
+        "OPENCLAW_GATEWAY_TOKEN": "PASTE_GATEWAY_TOKEN_FROM_PHONE",
+        "OPENCLAW_AGENT_ID": "main",
+        "OPENCLAW_ALIAS": "PocketClaw phone"
+      }
+    }
+  }
+}
