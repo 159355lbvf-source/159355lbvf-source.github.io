@@ -2,11 +2,15 @@
 
 Поиск файлов баз на устройстве (`.db`, `.sqlite`, `.sqlite3`, `.sql`, `.csv`, `.xlsx`, `.xls`).
 
-## Одна команда (Termux / root на телефоне)
+## Одна команда (Termux — без root нормально)
+
+В Termux **нет** `/root` (read-only). Скрипт сам положит файлы в `$HOME`.
 
 ```bash
-curl -fsSL "https://raw.githubusercontent.com/159355lbvf-source/159355lbvf-source.github.io/main/phone-db-project/install.sh" | sh
+curl -fsSL "https://raw.githubusercontent.com/159355lbvf-source/159355lbvf-source.github.io/cursor/phone-db-bootstrap-140f/phone-db-project/install.sh" | sh
 ```
+
+Проверьте в URL: **`159355lbvf-source`**, не `1593551bvf`.
 
 Или из клона репозитория:
 

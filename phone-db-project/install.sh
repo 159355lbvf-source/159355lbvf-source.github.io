@@ -1,10 +1,24 @@
 #!/bin/sh
-# One-shot: bootstrap + find + write /root/cursor-control/ОТВЕТ.txt (Termux / phone / Alpine)
+# One-shot: bootstrap + find + ОТВЕТ.txt (Termux без root → $HOME, иначе /root)
 set -eu
 
-PHONE_DB_ROOT="${PHONE_DB_ROOT:-/root/phone-db-project}"
-CURSOR_CTL="${CURSOR_CTL:-/root/cursor-control}"
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+
+_can_use_root() {
+  _t="/root/.cursor-write-test-$$"
+  mkdir -p /root 2>/dev/null && touch "$_t" 2>/dev/null && rm -f "$_t" 2>/dev/null
+}
+
+if [ -z "${PHONE_DB_ROOT:-}" ] || [ -z "${CURSOR_CTL:-}" ]; then
+  if _can_use_root; then
+    PHONE_DB_ROOT="${PHONE_DB_ROOT:-/root/phone-db-project}"
+    CURSOR_CTL="${CURSOR_CTL:-/root/cursor-control}"
+  else
+    PHONE_DB_ROOT="${PHONE_DB_ROOT:-$HOME/phone-db-project}"
+    CURSOR_CTL="${CURSOR_CTL:-$HOME/cursor-control}"
+    echo "Termux/без root: каталоги в $HOME"
+  fi
+fi
 
 mkdir -p "$CURSOR_CTL" "$PHONE_DB_ROOT/bin" "$PHONE_DB_ROOT/out" "$PHONE_DB_ROOT/data"
 cp "$SCRIPT_DIR/bin/find-bases.sh" "$PHONE_DB_ROOT/bin/find-bases.sh"
